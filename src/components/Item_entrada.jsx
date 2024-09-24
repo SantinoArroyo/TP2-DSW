@@ -13,7 +13,7 @@ function InputArea({ onAddItem }) {
       alert('Por favor, ingresa una cantidad válida (mayor que 0).');
       return;
     }
-    
+
     if (newItem.trim() !== '') {
       onAddItem({
         text: newItem,
@@ -23,6 +23,8 @@ function InputArea({ onAddItem }) {
       });
       setNewItem('');
       setNewDescription('');
+      setNewQuantity(1);
+      setIsFormValid(true);
     }
   };
 

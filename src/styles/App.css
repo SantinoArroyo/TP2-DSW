@@ -1,70 +1,77 @@
 body {
-    background: linear-to-r, rgb(131, 58, 180), rgb(253, 175, 69), rgb(252, 203, 211); /* Degradado sutil */
-    font-family: 'Roboto', sans-serif; /* Fuente moderna */
-  }
-  
-  .App {
+    background: linear-to-r, rgb(131, 58, 180), rgb(253, 175, 69), rgb(252, 203, 211);
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.App {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .input-area {
+}
+
+.input-area {
     margin-bottom: 20px;
     width: 80%;
-  }
-  
-  .input-area input[type='text'],
-  .input-area textarea {
+}
+
+.input-area input[type='text'],
+.input-area textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
-  }
-  
-  .input-area input[type='number']{
+}
+
+.input-area input[type='number'] {
     margin: 15px;
-  } 
-  
-  
-  .input-area button {
+}
+
+
+.input-area button {
     background-color: #4caf50;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.4s ease; /* Transición suave para el hover */
-  }
-  
-  .input-area button:hover {
-    background-color: #45a049; /* Color más oscuro al pasar el ratón */
-  }
-  
-  .item-list-container {
+    transition: background-color 0.4s ease;
+    
+}
+
+.input-area button:hover {
+    background-color: #45a049;
+    
+}
+
+.item-list-container {
     display: flex;
     width: 80%;
     justify-content: space-around;
-  }
-  
-  .incomplete-items,
-  .completed-items {
+}
+
+.incomplete-items,
+.completed-items {
     width: 45%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  ul {
+}
+
+.incomplete-items{
+    position: relative;
+}
+
+ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .item {
+}
+
+.item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,22 +80,24 @@ body {
     background-color: #f9f9f9;
     border-radius: 5px;
     margin-bottom: 15px;
-    transition: background-color 0.2s ease, transform 0.2s ease; /* Transición suave para el hover */
-  }
-  
-  .item:hover {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    
+}
+
+.item:hover {
     background-color: #e0e0e0;
-    transform: translateY(-2px);}
-  
-  .item-details {
+    transform: translateY(-2px);
+}
+
+.item-details {
     flex: 1;
-  }
-  
-  .item-actions {
+}
+
+.item-actions {
     display: flex;
-  }
-  
-  .item-actions button {
+}
+
+.item-actions button {
     margin-left: 5px;
     font-size: 14px;
     background-color: #4caf50;
@@ -97,28 +106,30 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
-  }
-  
-  .item-actions button:hover {
-    background-color: #45a049; /* Color más oscuro al pasar el ratón */
-  }
-  
-  .item.completed {
+    transition: background-color 0.3s ease;
+    
+}
+
+.item-actions button:hover {
+    background-color: #45a049;
+    
+}
+
+.item.completed {
     text-decoration: line-through;
     color: gray;
     background-color: #e0e0e0;
-  }
-  
-  .tabs {
+}
+
+.tabs {
     display: flex;
     margin-bottom: 20px;
     border-bottom: 4px solid #ccc;
     width: 80%;
     overflow-x: auto;
-  }
-  
-  .tab {
+}
+
+.tab {
     padding: 10px 20px;
     border: none;
     border-radius: 5px 5px 0 0;
@@ -128,21 +139,22 @@ body {
     color: #333;
     background-color: #f0f0f0;
     border-bottom: 3px solid transparent;
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
-  }
-  
-  .tab:hover {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+}
+
+.tab:hover {
     background-color: #ddd;
     transform: translateY(-2px);
-  }
-  
-  .tab.active {
+}
+
+.tab.active {
     background-color: #4caf50;
     color: white;
     border-bottom: 3px solid #4caf50;
-  }
-  
-  .add-tab {
+}
+
+.add-tab {
     padding: 10px 20px;
     font-size: 20px;
     border: none;
@@ -152,19 +164,64 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
-  }
-  
-  .add-tab:hover {
-    background-color: #007799; /* Color más oscuro al pasar el ratón */
-  }
-  
-  .add-tab::before {
+    transition: background-color 0.3s ease;
+
+}
+
+.add-tab:hover {
+    background-color: #007799;
+
+}
+
+.add-tab::before {
     content: "+";
     margin-right: 5px;
-  }
-  
-  .tab-container {
+}
+
+.tab-container {
     display: flex;
     align-items: center;
-  }
+}
+
+.delete-list-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-list-button:hover {
+    background-color: #cc0000;
+}
+
+h1 {
+    border-radius: 5px;
+    width: 80%;
+    background-color: #008cba;
+    color: white;
+    padding: 10px;
+}
+
+.limpiar-lista-button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: block;
+    bottom: 10px;
+    left: 10px;
+    transition: background-color 0.3s ease;
+    
+}
+
+.limpiar-lista-button:hover {
+    background-color: #cc6600;
+}

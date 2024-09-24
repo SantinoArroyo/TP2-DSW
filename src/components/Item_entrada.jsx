@@ -3,10 +3,17 @@ import React, { useState } from 'react';
 function InputArea({ onAddItem }) {
   const [newItem, setNewItem] = useState('');
   const [newDescription, setNewDescription] = useState('');
-  const [newQuantity, setNewQuantity] = useState('');
+  const [newQuantity, setNewQuantity] = useState('1');
+  const [isFormValid, setIsFormValid] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isFormValid) {
+      alert('Por favor, ingresa una cantidad válida (mayor que 0).');
+      return;
+    }
+    
     if (newItem.trim() !== '') {
       onAddItem({
         text: newItem,

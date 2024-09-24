@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ItemList from './components/itemlist';
-import InputArea from './components/Item_entrada';
+import InputArea from './components/Item_entrada'; 
 import './styles/App.css';
 
 function App() {
@@ -65,6 +65,7 @@ function App() {
       const updatedLists = lists.filter((_, i) => i !== activeListIndex);
       setLists(updatedLists);
 
+      // Ajustar el índice de la lista activa:
       if (updatedLists.length === 0) {
         // Si no quedan listas, reiniciar el índice a 0
         setActiveListIndex(0);
@@ -72,6 +73,20 @@ function App() {
         // Si se eliminó la última lista, seleccionar la anterior
         setActiveListIndex(updatedLists.length - 1);
       }
+    }
+  };
+
+  const clearActiveList = () => {
+    if (
+      window.confirm(
+        `¿Estás seguro de que quieres limpiar la lista "${lists[activeListIndex].name}"?`
+      )
+    ) {
+      const updatedLists = [...lists];
+      updatedLists[activeListIndex].items = updatedLists[
+        activeListIndex
+      ].items.filter((item) => item.completed); // Solo mantener los items completados
+      setLists(updatedLists);
     }
   };
 
@@ -90,9 +105,9 @@ function App() {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>Lista de compras</h1>
-      <div className='tabs'>
+      <div className="tabs">
         {lists.map((list, index) => (
           <button
             key={index}
@@ -103,7 +118,7 @@ function App() {
             {list.name}
           </button>
         ))}
-        <button className='add-tab' onClick={addList}>
+        <button className="add-tab" onClick={addList}>
           +
         </button>
       </div>
@@ -115,13 +130,15 @@ function App() {
           onUpdateItem={updateItem}
           onDeleteItem={deleteItem}
           onMoveCompletedToEnd={moveCompletedToEnd}
+          onClearList={clearActiveList} // Pasa la función como prop a ItemList
         />
       ) : (
         <p>No hay listas creadas. ¡Añade una nueva lista!</p>
       )}
 
+      {/* Botón para eliminar listas */}
       {lists.length > 0 && (
-        <button className='delete-list-button' onClick={deleteActiveList}>
+        <button className="delete-list-button" onClick={deleteActiveList}>
           Eliminar lista
         </button>
       )}

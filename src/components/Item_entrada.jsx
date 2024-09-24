@@ -28,6 +28,12 @@ function InputArea({ onAddItem }) {
     }
   };
 
+  const handleQuantityChange = (e) => {
+    const quantity = parseInt(e.target.value);
+    setNewQuantity(quantity || ''); // Permitir borrar el valor
+    setIsFormValid(quantity > 0); // Actualizar estado del formulario
+  };
+
   return (
     <form className="input-area" onSubmit={handleSubmit}>
       <input
@@ -44,7 +50,7 @@ function InputArea({ onAddItem }) {
       <input
         type="number"
         value={newQuantity}
-        onChange={(e) => setNewQuantity(parseInt(e.target.value) || 1)}
+        onChange={handleQuantityChange}
         min="1"
         placeholder="Cantidad"
         />

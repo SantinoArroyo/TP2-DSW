@@ -14,6 +14,11 @@ function InputArea({ onAddItem }) {
       return;
     }
 
+    if (newItem.trim() === '') {
+      alert('Por favor, ingresa el item.');
+      return; 
+    }
+
     if (newItem.trim() !== '') {
       onAddItem({
         text: newItem,
@@ -30,8 +35,8 @@ function InputArea({ onAddItem }) {
 
   const handleQuantityChange = (e) => {
     const quantity = parseInt(e.target.value);
-    setNewQuantity(quantity || ''); // Permitir borrar el valor
-    setIsFormValid(quantity > 0); // Actualizar estado del formulario
+    setNewQuantity(quantity || '');
+    setIsFormValid(quantity > 0);
   };
 
   return (

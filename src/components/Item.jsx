@@ -37,7 +37,7 @@ function Item({
 
   const toggleComplete = () => {
     onUpdateItem(index, { ...item, completed: !item.completed });
-    onMoveCompletedToEnd(); // Mover el item entre las listas al cambiar el estado completed
+    onMoveCompletedToEnd();
   };
 
   return (

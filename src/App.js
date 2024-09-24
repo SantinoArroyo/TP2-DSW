@@ -65,12 +65,9 @@ function App() {
       const updatedLists = lists.filter((_, i) => i !== activeListIndex);
       setLists(updatedLists);
 
-      // Ajustar el índice de la lista activa:
       if (updatedLists.length === 0) {
-        // Si no quedan listas, reiniciar el índice a 0
         setActiveListIndex(0);
       } else if (activeListIndex >= updatedLists.length) {
-        // Si se eliminó la última lista, seleccionar la anterior
         setActiveListIndex(updatedLists.length - 1);
       }
     }
@@ -130,13 +127,12 @@ function App() {
           onUpdateItem={updateItem}
           onDeleteItem={deleteItem}
           onMoveCompletedToEnd={moveCompletedToEnd}
-          onClearList={clearActiveList} // Pasa la función como prop a ItemList
+          onClearList={clearActiveList} 
         />
       ) : (
         <p>No hay listas creadas. ¡Añade una nueva lista!</p>
       )}
 
-      {/* Botón para eliminar listas */}
       {lists.length > 0 && (
         <button className="delete-list-button" onClick={deleteActiveList}>
           Eliminar lista
